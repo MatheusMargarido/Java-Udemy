@@ -1,0 +1,12 @@
+import java.util.List;
+
+public class Listas {
+
+	public static void main(String[] args) {
+
+		// LISTAS NÃO ACEITA TIPOS PRIMITIVOS, TEM QUE USAR OS HYPERCLASS
+		
+		List<Integer> list;
+	}
+
+}

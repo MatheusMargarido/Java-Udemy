@@ -1,0 +1,51 @@
+package application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Quartos;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner in = new Scanner(System.in);
+		Quartos[] vet = new Quartos[10];
+
+		System.out.println("Informe quantas pessoas irão alugar: ");
+		int n = in.nextInt();
+
+		for (int i = 0; i < n; i++) {
+
+			System.out.printf("Pessoa [%d]", i + 1);
+			
+			System.out.print("NOME: ");
+			in.nextLine();
+			String nome = in.nextLine();
+			
+			System.out.print("EMAIL: ");
+			String email = in.next();
+			
+			System.out.print("QUARTO: ");
+			int num = in.nextInt();
+			
+			vet[num] = new Quartos(nome,email,num);
+			System.out.println();
+		}
+		System.out.println("Quartos alugados");
+		
+		for (int i = 0; i < vet.length; i++) {
+			
+			if(vet[i].getNum() != 0) {
+				System.out.printf("%d: ,%s ,%s%n",vet[i].getNum(),vet[i].getNome(),vet[i].getEmail());
+			}
+			
+			
+		}
+
+		in.close();
+
+	}
+
+}

@@ -1,0 +1,52 @@
+package application;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner in = new Scanner(System.in);
+
+		int n = in.nextInt();
+		int m = in.nextInt();
+
+		Integer[][] mat = new Integer[n][m];
+
+		for (int i = 0; i < mat.length; i++) {
+			for (int j = 0; i < mat[i].length; i++) {
+				mat[i][j] = in.nextInt();
+			}
+		}
+		System.out.print("Numero que deseja encontrar: ");
+		int num = in.nextInt();
+
+		for (int i = 0; i < mat.length; i++) {
+			for (int j = 0; i < mat[i].length; i++) {
+
+				if (mat[i][j] == num) {
+
+					System.out.printf("Posição: [%d][%d]", i, j);
+					if (mat[i - 1][j] != null) {
+						System.out.println("numero a esquerda: " + mat[i - 1][j]);
+					}
+					if (mat[i + 1][j] != null) {
+						System.out.println("numero a direita: " + mat[i + 1][j]);
+					}
+					if (mat[i][j + 1] != null) {
+						System.out.println("numero a cima: " + mat[i][j + 1]);
+					}
+					if (mat[i][j - 1] != null) {
+						System.out.println("numero abaixo: " + mat[i][j - 1]);
+					}
+
+				}
+			}
+		}
+
+		in.close();
+	}
+
+}

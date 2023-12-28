@@ -1,0 +1,66 @@
+package application;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Empregados;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner in = new Scanner(System.in);
+		List<Empregados> list = new ArrayList<>();
+
+		System.out.print("QUANTOS FUNCIONARIOS VOCÊ IRA REGISTRAR? ");
+		int n = in.nextInt();
+
+		for (int i = 0; i < n; i++) {
+			System.out.println();
+			System.out.println("FUNCIONARIO #" + (i + 1));
+
+			System.out.print("ID: ");
+			int id = in.nextInt();
+
+			while (hasId(list, id)) {
+				System.out.print("ID REPETIDO, INFORME OUTRO: ");
+				id = in.nextInt();
+			}
+			System.out.print("NOME: ");
+			in.nextLine();
+			String nome = in.nextLine();
+
+			System.out.print("SALARIO: ");
+			double salario = in.nextDouble();
+
+			list.add(new Empregados(id, nome, salario));
+
+		}
+		System.out.println();
+		System.out.print("INFORME O ID DO FUNCIONARIO QUE RECEBERA UM AUMENTO: ");
+		int id = in.nextInt();
+		Empregados emp = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+		if (emp == null) {
+			System.out.println("Funcionario não existe");
+		} else {
+			System.out.println("Informe a porcentagem de aumento: ");
+			double aumento = in.nextDouble();
+			emp.aumentoSalario(aumento);
+		}
+		System.out.println();
+		System.out.println("LISTA DE FUNCIONARIOS");
+		for (Empregados obj : list) {
+			System.out.println(obj);
+		}
+		in.close();
+	}
+
+	public static boolean hasId(List<Empregados> list, int id) {
+		Empregados emp = list.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+		return emp != null;
+	}
+
+}

@@ -1,0 +1,96 @@
+package application;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Employee;
+import entities.Produto;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner in = new Scanner(System.in);
+		List<Produto> list = new ArrayList<>();
+
+		System.out.print("INFORME A QUANTIDADE DE PRODUTOS: ");
+		int n = in.nextInt();
+		Integer resposta = null;
+
+		do {
+			System.out.println("1 - CADASTRAR PRODUTO");
+			System.out.println("2 - INFORMAÇOES DOS PRODUTOS");
+			System.out.println("3 - ADICIONAR PRODUTO");
+			System.out.println("4 - REMOVER PRODUTO");
+			System.out.println("5 - TOTAL EM ESTOQUE");
+			System.out.println("6 - EXIT");
+			resposta = in.nextInt();
+
+			switch (resposta) {
+			case 1:
+
+				System.out.print("INFORME A QUANTIDADE: ");
+				int q = in.nextInt();
+
+				for (int i = 0; i < q; i++) {
+
+					System.out.print("CODIGO: ");
+					int cod = in.nextInt();
+					System.out.print("NOME: ");
+					in.nextLine();
+					String nome = in.nextLine();
+					System.out.print("PRECO: ");
+					double preco = in.nextDouble();
+					System.out.print("QUANTIDADE: ");
+					int quantidade = in.nextInt();
+					Produto produto = new Produto(cod, nome, preco, quantidade);
+					list.add(produto);
+
+				}
+
+				break;
+			
+			case 2:
+				for(Produto obj: list) {
+					System.out.println(obj);
+				}
+				break;
+
+			case 3:
+				System.out.println("INFORME O CODIGO DO PRODUTO: ");
+				int cod = in.nextInt();
+				Produto prod = list.stream().filter(x -> x.getCodigo() == cod).findFirst().orElse(null);
+				
+				if(prod == null) {
+					while(prod != null) {
+					System.out.println("Produto não encontrado");
+					System.out.print("Informe o codigo novamente: ");
+					cod = in.nextInt();}
+				}
+				
+				break;
+
+			case 4:
+				break;
+
+			case 5:
+				break;
+
+			case 6:
+				break;
+
+			default:
+				break;
+
+			}
+
+		} while (resposta != 6);
+
+		in.close();
+
+	}
+
+}

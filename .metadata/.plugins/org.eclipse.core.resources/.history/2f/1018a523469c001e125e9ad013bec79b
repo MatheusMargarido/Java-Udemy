@@ -1,0 +1,47 @@
+package entities;
+
+public class Quartos {
+	
+	
+	private String nome;
+	private String email;
+	private String quartoAlugado;
+	
+	public Quartos(String nome, String email, String quartoAlugado) {
+		this.nome = nome;
+		this.email = email;
+		this.quartoAlugado = quartoAlugado;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getQuantoAlugado() {
+		return quartoAlugado;
+	}
+
+	public void setQuantoAlugado(String quantoAlugado) {
+		this.quartoAlugado = quantoAlugado;
+	}
+	
+
+	
+	
+	
+	
+	
+	
+}
