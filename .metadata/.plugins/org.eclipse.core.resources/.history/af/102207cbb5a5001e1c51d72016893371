@@ -1,0 +1,14 @@
+package entities;
+
+import java.util.Date;
+
+import entities.enums.OrderStatus;
+
+public class Pedidos {
+
+	private Integer id;
+	private Date instante;
+	private OrderStatus status;
+	
+	
+}

@@ -1,0 +1,16 @@
+package entities;
+
+import java.util.List;
+
+import entities.enums.NivelDoTrabalhador;
+
+public class Trabalho {
+
+	private String nome;
+	private NivelDoTrabalhador level;
+	private double baseSalario;
+	
+	
+	private Departamento departamento;
+	private List<HorasDeContrato> contratos;
+}

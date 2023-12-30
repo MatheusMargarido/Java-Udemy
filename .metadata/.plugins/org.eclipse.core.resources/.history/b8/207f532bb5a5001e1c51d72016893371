@@ -1,0 +1,9 @@
+package entities;
+
+public enum OrderStatus {
+
+	preparando_pedido,
+	processando,
+	a_caminho,
+	entrege;
+}

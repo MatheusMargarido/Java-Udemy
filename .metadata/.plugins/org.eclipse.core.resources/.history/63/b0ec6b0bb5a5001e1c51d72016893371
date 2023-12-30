@@ -1,0 +1,8 @@
+package entities;
+
+public class Pedidos {
+
+	private int id;
+	private Date momento;
+	private OrderStatus status;
+}
